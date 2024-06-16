@@ -1,5 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Agent } from 'node:http';
 
 @Component({
   selector: 'app-root',
@@ -112,4 +113,16 @@ export class AppComponent {
     console.warn(item);
     this.val = item;
   }
+
+  getVal(item: HTMLInputElement) {
+    console.log(item.value);
+    item.value = '';
+  }
+
+  tag = 'Angular Basic Pipes';
+  today = Date();
+  user = {
+    name: 'dolly',
+    age: 25,
+  };
 }

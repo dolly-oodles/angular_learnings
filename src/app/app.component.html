@@ -121,5 +121,25 @@
 <app-child [userData] ="user"></app-child>
 </ul> -->
 
-<app-child (updateDataEvent) ="updateData($event)"></app-child>
-<h1>{{val}}</h1>
+<!-- <app-child (updateDataEvent) ="updateData($event)"></app-child>
+<h1>{{val}}</h1> -->
+
+<!-- <input type="text" #box name="username" placeholder="enter username" />
+<button (click)="getVal(box)">Call Function</button> -->
+
+<h1>{{tag }}</h1>
+<!-- <h1>{{tag | uppercase}}</h1>
+<h1>{{tag | lowercase}}</h1> -->
+<h1>{{tag | slice:3:7 | uppercase}}</h1>
+<P>{{'how are you' | titlecase}}</P>
+<h1>{{today}}</h1>
+<h1>{{today | date}}</h1>
+<h1>{{today | date:'fullDate'}}</h1>
+<h3>{{user | json | uppercase}}</h3>
+<!--  3 digits before decimal and min 2 or max 5 digits after decimal -->
+<h2>{{02000.3000 | number:'3.2-5'}}</h2>
+<!-- 3 digits before decimal and min 3 or max 5 digits after decimal -->
+<h2>{{2.3 | number:'3.3-5'}}</h2>
+<h1>{{20 | currency:'INR'}}</h1>
+<h1>{{20 | currency:'USD'}}</h1>
+<h1>{{20 | currency:'GBP'}}</h1>

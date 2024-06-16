@@ -15,8 +15,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ChildComponent } from './child/child.component';
+import { UsdInrPipe } from './pipes/usd-inr.pipe';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeaderComponent, ChildComponent],
+  declarations: [AppComponent, LoginComponent, HeaderComponent, ChildComponent, UsdInrPipe],
   imports: [
     BrowserModule,
     AppRoutingModule,
