@@ -6,7 +6,7 @@ import {
 import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { CommonModule } from '@angular/common';
-import { FormsModule, NgForm } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -16,8 +16,16 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatBadgeModule } from '@angular/material/badge';
 import { ChildComponent } from './child/child.component';
 import { UsdInrPipe } from './pipes/usd-inr.pipe';
+import { RedElDirective } from './red-el.directive';
 @NgModule({
-  declarations: [AppComponent, LoginComponent, HeaderComponent, ChildComponent, UsdInrPipe],
+  declarations: [
+    AppComponent,
+    LoginComponent,
+    HeaderComponent,
+    ChildComponent,
+    UsdInrPipe,
+    RedElDirective,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -27,6 +35,7 @@ import { UsdInrPipe } from './pipes/usd-inr.pipe';
     MatSlideToggleModule,
     MatButtonModule,
     MatBadgeModule,
+    ReactiveFormsModule,
   ],
   providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],

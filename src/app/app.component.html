@@ -127,19 +127,52 @@
 <!-- <input type="text" #box name="username" placeholder="enter username" />
 <button (click)="getVal(box)">Call Function</button> -->
 
-<h1>{{tag }}</h1>
+<!-- <h1>{{tag }}</h1> -->
 <!-- <h1>{{tag | uppercase}}</h1>
 <h1>{{tag | lowercase}}</h1> -->
-<h1>{{tag | slice:3:7 | uppercase}}</h1>
+<!-- <h1>{{tag | slice:3:7 | uppercase}}</h1>
 <P>{{'how are you' | titlecase}}</P>
 <h1>{{today}}</h1>
 <h1>{{today | date}}</h1>
 <h1>{{today | date:'fullDate'}}</h1>
-<h3>{{user | json | uppercase}}</h3>
+<h3>{{user | json | uppercase}}</h3>  -->
 <!--  3 digits before decimal and min 2 or max 5 digits after decimal -->
-<h2>{{02000.3000 | number:'3.2-5'}}</h2>
+<!-- <h2>{{02000.3000 | number:'3.2-5'}}</h2> -->
 <!-- 3 digits before decimal and min 3 or max 5 digits after decimal -->
-<h2>{{2.3 | number:'3.3-5'}}</h2>
+<!-- <h2>{{2.3 | number:'3.3-5'}}</h2>
 <h1>{{20 | currency:'INR'}}</h1>
 <h1>{{20 | currency:'USD'}}</h1>
-<h1>{{20 | currency:'GBP'}}</h1>
+<h1>{{20 | currency:'GBP'}}</h1>  -->
+
+<!-- custom pipes -->
+<!-- <h1>{{20 | usdInr}}</h1> -->
+<!-- <h1>{{20 | usdInr:90}}</h1> -->
+
+<!-- Template Driven Forms -->
+
+<!-- <form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm.value)"> loginForm  is Template Refrence Varibale -->
+<!-- <form #loginForm="ngForm" (ngSubmit)="userLogin(loginForm.controls)">
+  <input type="text" placeholder="Enter Name" name="name" ngModel />
+  <br /><br />
+  <input type="password" name="password" placeholder="Enter Password" ngModel>
+  <br /><br />
+  <button>Login</button>
+</form> -->
+
+<!-- <button (click)="userLogin(loginForm.value)">OutsideLogin</button> -->
+
+<!-- Reactive Forms -->
+
+<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+  <input type="text" placeholder="Enter Name" formControlName="user" />
+  <br />
+  <span style="color: red;" *ngIf="userValidator && userValidator.invalid && userValidator.touched">This field is not
+    valid</span>
+  <br />
+  <input type="password" placeholder="Enter Password" formControlName="password" />
+  <br />
+  <span style="color: red;" *ngIf="passwordValidator && passwordValidator.invalid && passwordValidator.touched">This
+    field is not valid</span>
+  <br />
+  <button [disabled]="loginForm.invalid">Login</button>
+</form>

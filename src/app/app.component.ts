@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Agent } from 'node:http';
 
 @Component({
@@ -121,8 +121,33 @@ export class AppComponent {
 
   tag = 'Angular Basic Pipes';
   today = Date();
-  user = {
-    name: 'dolly',
-    age: 25,
-  };
+  // user = {
+  //   name: 'dolly',
+  //   age: 25,
+  // };
+  // userLogin(item: any) {
+  //   console.log(item);
+  // }
+
+  loginForm = new FormGroup({
+    // user: new FormControl('', [Validators.required, Validators.email]),
+    user: new FormControl('', [
+      Validators.required,
+      Validators.pattern('[a-zA-Z]+$'),
+    ]),
+    password: new FormControl('', [
+      Validators.required,
+      Validators.minLength(5),
+    ]),
+  });
+
+  loginUser() {
+    console.log(this.loginForm.value);
+  }
+  get userValidator() {
+    return this.loginForm.get('user');
+  }
+  get passwordValidator() {
+    return this.loginForm.get('password');
+  }
 }
