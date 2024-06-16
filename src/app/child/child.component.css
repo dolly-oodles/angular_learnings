@@ -1,0 +1,10 @@
+li {
+  display: inline-block;
+  padding: 10px;
+  background-color: aquamarine;
+  width: 30%;
+  color: blue;
+  margin-right: 10px;
+  margin-top: 10px;
+  border-left: 2px solid blue;
+}

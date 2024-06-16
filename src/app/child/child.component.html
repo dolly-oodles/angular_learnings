@@ -1,0 +1,11 @@
+<!-- <h1>{{item}}</h1> -->
+
+<ul>
+    <li>{{userData.name}}</li>
+    <li>{{userData.email}}</li>
+</ul>
+<input type="text" #box/>
+<button (click)="updateDataEvent.emit(box.value)">Update Data</button>
+
+
+
