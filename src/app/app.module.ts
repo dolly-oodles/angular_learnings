@@ -17,6 +17,11 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { ChildComponent } from './child/child.component';
 import { UsdInrPipe } from './pipes/usd-inr.pipe';
 import { RedElDirective } from './red-el.directive';
+import { UpdateValDirective } from './update-val.directive';
+import { UserComponent } from './user/user.component';
+import { HomeComponent } from './home/home.component';
+import { AboutComponent } from './about/about.component';
+import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,6 +30,11 @@ import { RedElDirective } from './red-el.directive';
     ChildComponent,
     UsdInrPipe,
     RedElDirective,
+    UpdateValDirective,
+    UserComponent,
+    HomeComponent,
+    AboutComponent,
+    NotFoundPageComponent,
   ],
   imports: [
     BrowserModule,

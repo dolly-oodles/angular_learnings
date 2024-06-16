@@ -1,10 +1,10 @@
 import { Directive, ElementRef } from '@angular/core';
 
 @Directive({
-  selector: '[appRedEl]',
+  selector: '[appUpdateVal]',
 })
-export class RedElDirective {
+export class UpdateValDirective {
   constructor(el: ElementRef) {
-    el.nativeElement.style.color = 'red';
+    el.nativeElement.textContent = 'hii';
   }
 }
