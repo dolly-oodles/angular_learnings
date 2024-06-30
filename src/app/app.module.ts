@@ -22,6 +22,11 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
+import { FooterComponent } from './footer/footer.component';
+import { AdminModule } from './admin/admin.module';
+import { UserModule } from './user/user.module';
+import { AdminlistComponent } from './adminlist/adminlist.component';
+import { UserlistComponent } from './userlist/userlist.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +40,9 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     HomeComponent,
     AboutComponent,
     NotFoundPageComponent,
+    FooterComponent,
+    AdminlistComponent,
+    UserlistComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +54,8 @@ import { NotFoundPageComponent } from './not-found-page/not-found-page.component
     MatButtonModule,
     MatBadgeModule,
     ReactiveFormsModule,
+    AdminModule,
+    UserModule,
   ],
   providers: [provideClientHydration(), provideAnimationsAsync()],
   bootstrap: [AppComponent],

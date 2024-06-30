@@ -1,6 +1,12 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { NgForm, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Agent } from 'node:http';
+import {
+  Component,
+  ViewContainerRef,
+  ComponentFactoryResolver,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
+import { Todo, UserDataService } from './services/user-data.service';
+import { FormControl, FormGroup, NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +14,18 @@ import { Agent } from 'node:http';
   styleUrl: './app.component.css',
 })
 export class AppComponent {
+  usersData: Todo[] = [];
+  constructor(private userdata: UserDataService) {}
+
+  ngOnInit() {
+    this.userdata.users().subscribe((data: Todo[]) => {
+      this.usersData = data;
+      // console.log(this.usersData);
+    });
+  }
   title: string = 'App';
   displayVal: string = '';
+
   getValue(val: string) {
     console.warn(val);
     this.displayVal = val;

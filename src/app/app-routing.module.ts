@@ -5,34 +5,46 @@ import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundPageComponent } from './not-found-page/not-found-page.component';
 import { ChildComponent } from './child/child.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
   {
-    path: 'about',
-    component: AboutComponent,
+    path: 'admin',
+    loadChildren: () =>
+      import('./admin/admin.module').then((mod) => mod.AdminModule),
   },
   {
-    path: 'user/:id',
-    component: UserComponent,
-    children: [
-      {
-        path: 'child',
-        component: ChildComponent,
-      },
-    ],
+    path: 'user',
+    loadChildren: () =>
+      import('./user/user.module').then((mod) => mod.UserModule),
   },
-  {
-    path: '',
-    component: HomeComponent,
-  },
-  {
-    path: '**',
-    component: NotFoundPageComponent,
-  },
+
+  // {
+  //   path: 'about',
+  //   component: AboutComponent,
+  // },
+  // {
+  //   path: 'user/:id',
+  //   component: UserComponent,
+  //   children: [
+  //     {
+  //       path: 'child',
+  //       component: ChildComponent,
+  //     },
+  //   ],
+  // },
+  // {
+  //   path: '',
+  //   component: HomeComponent,
+  // },
+  // {
+  //   path: '**',
+  //   component: NotFoundPageComponent,
+  // },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes), HttpClientModule],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
